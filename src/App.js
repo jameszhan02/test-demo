@@ -9,8 +9,6 @@ function App() {
   const [searchTag, setSearchTag] = useState("");
   const [metaStudents, setMetaStudents] = useState([]);
 
-  let nameList = [];
-  let tagList = [];
 
   useEffect(() => {
     console.log("app.js page rendered!");
@@ -18,8 +16,6 @@ function App() {
       console.log(res.data.students);
       setStudents(res.data.students);
       setMetaStudents(res.data.students);
-      nameList = res.data.students;
-      tagList = res.data.students;
     })
   }, []);
 
@@ -116,8 +112,8 @@ function App() {
         </div>
         <div className='list'>
           {
-            students.map(student => (
-              <StudentCard trigger={triggerAddTag}  student={student}></StudentCard>
+            students.map((student, index) => (
+              <StudentCard key={index} trigger={triggerAddTag}  student={student}></StudentCard>
             ))
           }
         </div>

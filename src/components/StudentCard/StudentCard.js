@@ -65,8 +65,8 @@ function StudentCard(props) {
           )}
           <div className='tag-holder'>
             {tags.length > 0 && (
-              tags.map(tag => (
-                <div className="tag">
+              tags.map((tag, index) => (
+                <div key={index} className="tag">
                   {tag}
                 </div>
               ))
